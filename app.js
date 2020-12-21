@@ -120,7 +120,7 @@ const promptAddMember = () => {
 		},
 		{
 			type: "input",
-			name: "officenumber",
+			name: "officeNumber",
 			message: "Office Number:",
 			when: answers => answers.role === "Manager",
 			validate(input) {
@@ -182,8 +182,32 @@ const init = async () => {
 
 		while (active) {
 			const member = await promptAddMember();
+			const { name, email, id, officeNumber, github, school } = member;
 			const continueLoop = await promptContinue();
-			members.push(member);
+
+			switch (member.role) {
+				case "Manager":
+					members.push(
+						new Manager(
+							name.trim(),
+							id.trim(),
+							email.trim(),
+							officeNumber.trim()
+						)
+					);
+					break;
+				case "Engineer":
+					members.push(
+						new Engineer(name.trim(), id.trim(), email.trim(), github.trim())
+					);
+					break;
+				case "Intern":
+					members.push(
+						new Intern(name.trim(), id.trim(), email.trim(), school.trim())
+					);
+					break;
+			}
+
 			if (!continueLoop.confirm) {
 				active = false;
 			}
