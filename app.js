@@ -217,7 +217,7 @@ const init = async () => {
 
 		await writeFileAsync(outputPath, render(members));
 
-		console.log("Successfully created team.html");
+		console.log("Successfully created team.html in output folder");
 	} catch (err) {
 		console.log(err);
 	}
