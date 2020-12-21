@@ -10,6 +10,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const members = [];
+
 const generateRandomId = () => {
 	const characters = [
 		"A",
@@ -166,11 +168,28 @@ const promptAddMember = () => {
 	]);
 };
 
+const promptContinue = () => {
+	return inquirer.prompt({
+		type: "confirm",
+		name: "confirm",
+		message: "Add another member?",
+	});
+};
+
 const init = async () => {
 	try {
-		const answers = await promptAddMember();
+		let active = true;
 
-		console.log(answers);
+		while (active) {
+			const member = await promptAddMember();
+			const continueLoop = await promptContinue();
+			members.push(member);
+			if (!continueLoop.confirm) {
+				active = false;
+			}
+		}
+
+		render(members);
 	} catch (err) {
 		console.log(err);
 	}
