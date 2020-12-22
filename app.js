@@ -70,7 +70,15 @@ const promptAddMember = () => {
 			type: "list",
 			name: "role",
 			message: "Employee Role:",
-			choices: ["Manager", "Engineer", "Intern"],
+			choices: ["Manager"],
+			when: !members.some(member => member instanceof Manager),
+		},
+		{
+			type: "list",
+			name: "role",
+			message: "Employee Role:",
+			choices: ["Engineer", "Intern"],
+			when: members.some(member => member instanceof Manager),
 		},
 		{
 			type: "input",
