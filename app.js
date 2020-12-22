@@ -85,7 +85,7 @@ const promptAddMember = () => {
 			name: "name",
 			message: "Employee Name:",
 			validate(input) {
-				const regex = /[#-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|\d/;
+				const regex = /[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|\d/;
 
 				if (!input) {
 					return console.log("\nName required");
@@ -102,7 +102,7 @@ const promptAddMember = () => {
 			message: "Employee ID:",
 			default: generateRandomId(),
 			validate(input) {
-				const regex = /[#-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
+				const regex = /[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 
 				if (input.match(regex)) {
 					return console.log("\nID cannot include symbols");
@@ -164,7 +164,7 @@ const promptAddMember = () => {
 			message: "School:",
 			when: answers => answers.role === "Intern",
 			validate(input) {
-				const regex = /[#-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|\d/;
+				const regex = /[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]|\d/;
 
 				if (!input) {
 					return console.log("\nSchool required");
