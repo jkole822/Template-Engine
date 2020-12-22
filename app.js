@@ -104,7 +104,9 @@ const promptAddMember = () => {
 			validate(input) {
 				const regex = /[-!@#$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 
-				if (input.match(regex)) {
+				if (!input) {
+					return console.log("\nEmployee ID required");
+				} else if (input.match(regex)) {
 					return console.log("\nID cannot include symbols");
 				}
 
