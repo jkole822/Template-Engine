@@ -9,6 +9,7 @@ Node command line application that uses inquirer to take in information about em
 ## Table of Contents
 
 - [Visuals](#visuals)
+- [Walkthrough](#walkthrough)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Tests](#tests)
@@ -24,6 +25,10 @@ Node command line application that uses inquirer to take in information about em
 ### Regular View
 
 ![Regular View](images/regular-view.png)
+
+## Walkthrough
+
+[Video Walkthrough](https://drive.google.com/file/d/1ps5ft4EW3EkDEcrxZ8ztDQzytK_PZr0g/view)
 
 ## Installation
 
